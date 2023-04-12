@@ -163,16 +163,26 @@ export default {
 
 .header__line {
   height: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
 .header__line_top {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .header-logo__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -182,13 +192,23 @@ export default {
 }
 
 .header__right {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
 }
 
 .header-region__button {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-right: 2.3125rem;
   font-family: var(--base-font-family);
@@ -204,6 +224,8 @@ export default {
 .header-region__button:hover,
 .header-region__button:active {
   color: #d2dae2;
+  -webkit-transition: color 0.3s ease-in;
+  -o-transition: color 0.3s ease-in;
   transition: color 0.3s ease-in;
 }
 
@@ -225,6 +247,7 @@ export default {
 }
 
 .notification-bell {
+  -webkit-animation: bell 1s 1s both infinite;
   animation: bell 1s 1s both infinite;
 }
 
@@ -272,6 +295,7 @@ export default {
   border-bottom: 0.1062rem solid #fff;
   border-top: 0;
   border-radius: 0 0 3.125rem 3.125rem;
+  -webkit-animation: rad 1s 3s both infinite;
   animation: rad 1s 3s both infinite;
 }
 
@@ -287,53 +311,140 @@ export default {
   border: 0.1563rem solid #1f2229;
   /* animation: zoom 3s 3s both infinite; */
 }
-@keyframes bell {
+@-webkit-keyframes bell {
   0% {
+    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
   10% {
+    -webkit-transform: rotate(30deg);
     transform: rotate(30deg);
   }
   20% {
+    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
   80% {
+    -webkit-transform: rotate(0);
     transform: rotate(0);
   }
   90% {
+    -webkit-transform: rotate(-30deg);
     transform: rotate(-30deg);
   }
   100% {
+    -webkit-transform: rotate(0);
     transform: rotate(0);
+  }
+}
+@keyframes bell {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  10% {
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+  20% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  80% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  90% {
+    -webkit-transform: rotate(-30deg);
+    transform: rotate(-30deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+@-webkit-keyframes rad {
+  0% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10% {
+    -webkit-transform: translateX(0.375rem);
+    transform: translateX(0.375rem);
+  }
+  20% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  80% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  90% {
+    -webkit-transform: translateX(-0.375rem);
+    transform: translateX(-0.375rem);
+  }
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
   }
 }
 @keyframes rad {
   0% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
   10% {
+    -webkit-transform: translateX(0.375rem);
     transform: translateX(0.375rem);
   }
   20% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
   80% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
   90% {
+    -webkit-transform: translateX(-0.375rem);
     transform: translateX(-0.375rem);
   }
   100% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
+  }
+}
+@-webkit-keyframes zoom {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  10% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
   }
 }
 @keyframes zoom {
   0% {
     opacity: 0;
+    -webkit-transform: scale(0);
     transform: scale(0);
   }
   10% {
     opacity: 1;
+    -webkit-transform: scale(1);
     transform: scale(1);
   }
   50% {
@@ -365,7 +476,11 @@ export default {
 }
 
 .header-nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 
@@ -387,6 +502,8 @@ export default {
 .header-nav__item:hover,
 .header-nav__item_active {
   color: #1f2229;
+  -webkit-transition: color 0.3s ease-in;
+  -o-transition: color 0.3s ease-in;
   transition: color 0.3s ease-in;
 }
 
@@ -400,6 +517,8 @@ export default {
   width: 100%;
   height: 0.125rem;
   background-color: #1f2229;
+  -webkit-transition: height 0.3s ease-in;
+  -o-transition: height 0.3s ease-in;
   transition: height 0.3s ease-in;
 }
 
@@ -433,8 +552,15 @@ export default {
 
   .header-nav__list {
     position: relative;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: start;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
     flex-grow: 1;
     min-width: 350px;
   }
@@ -459,6 +585,8 @@ export default {
   .header-nav__item:hover,
   .header-nav__item_active {
     color: #1f2229;
+    -webkit-transition: color 0.3s ease-in;
+    -o-transition: color 0.3s ease-in;
     transition: color 0.3s ease-in;
   }
 
@@ -472,8 +600,14 @@ export default {
   }
 
   .header-menu__button {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
     margin-left: 24px;
     background-color: transparent;
