@@ -1,6 +1,6 @@
 @font-face {
   font-display: swap;
-  font-family: tele2_textsans_regular;
+  font-family: 'tele2_textsans_regular';
   font-style: normal;
   font-weight: 400;
   src: url('./tele2_textsans-regular.eot'); /* IE9 Compat Modes */
@@ -12,7 +12,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: tele2_displayserif-regular;
+  font-family: 'tele2_displayserif-regular';
   font-style: normal;
   font-weight: 400;
   src: url('./tele2_displayserif-regular.eot'); /* IE9 Compat Modes */
@@ -24,7 +24,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: tele2_displayserif-bold;
+  font-family: 'tele2_displayserif-bold';
   font-style: normal;
   font-weight: 600;
   src: url('./tele2_displayserif-bold.eot'); /* IE9 Compat Modes */
@@ -36,7 +36,7 @@
 
 @font-face {
   font-display: swap;
-  font-family: Standart CT Stencil;
+  font-family: 'Standart CT Stencil';
   font-style: normal;
   font-weight: 600;
   src: url('./Tele2DisplaySerif-Bold-short__W.eot'); /* IE9 Compat Modes */
