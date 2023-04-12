@@ -43,13 +43,13 @@
               >Москва и область
             </button>
             <button
+              :class="
+                !isMenuActive ? 'header-notifications__button_none' : null
+              "
               class="header-notifications__button"
               id="notifications-search-opener"
             >
-              <div
-                class="header-notifications-button__icon notification-box"
-                v-if="isMenuActive"
-              >
+              <div class="header-notifications-button__icon notification-box">
                 <div class="notification-bell">
                   <span class="bell-top"></span>
                   <span class="notification-count"></span>
@@ -103,12 +103,15 @@
         <div class="container-fluid header__line header__line_bottom">
           <nav class="header__nav">
             <ul class="header-nav__list">
-              <li class="header__nav-item">Преимущества Tele2</li>
-              <li class="header__nav-item">Тарифы</li>
-              <li class="header__nav-item">Акции и спецпредложения</li>
-              <li class="header__nav-item">Промотариф Tele2</li>
-              <li class="header__nav-item">Технология eSIM</li>
-              <li class="header__nav-item">Подключение нового абонента</li>
+              <li
+                v-for="item in menuNames"
+                :class="item.isActive ? 'header-nav__item_active' : null"
+                class="header-nav__item"
+                :key="item.name"
+                @click="handlerAddActiveClass(item.name)"
+              >
+                {{ item.name }}
+              </li>
             </ul>
           </nav>
         </div>
@@ -118,18 +121,26 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex';
+
 export default {
   name: 'App',
   data() {
     return {
       isMenuActive: true,
 
-      activNavClass: 'header__nav-item_active',
+      activNavClass: 'header-nav__item_active',
     };
   },
+  computed: { ...mapGetters('menuNavStore', ['menuNames']) },
   methods: {
+    ...mapActions('menuNavStore', ['setMenuStatus']),
+
     handlerUpMenu() {
       this.isMenuActive = !this.isMenuActive;
+    },
+    handlerAddActiveClass(name) {
+      this.setMenuStatus(name);
     },
   },
 };
@@ -358,7 +369,7 @@ export default {
   align-items: center;
 }
 
-.header__nav-item {
+.header-nav__item {
   position: relative;
   font-family: var(--base-font-family);
   font-style: normal;
@@ -369,18 +380,18 @@ export default {
   cursor: pointer;
 }
 
-.header__nav-item:not(:last-child) {
+.header-nav__item:not(:last-child) {
   margin-right: 1.125rem;
 }
 
-.header__nav-item:hover,
-.header__nav-item_active {
+.header-nav__item:hover,
+.header-nav__item_active {
   color: #1f2229;
   transition: color 0.3s ease-in;
 }
 
-.header__nav-item:hover::after,
-.header__nav-item_active::after {
+.header-nav__item:hover::after,
+.header-nav__item_active::after {
   content: '';
   position: absolute;
   z-index: 10;
@@ -394,6 +405,10 @@ export default {
 
 @media (max-width: 900px) {
   .header__white_none {
+    display: none;
+  }
+
+  .header-notifications__button_none {
     display: none;
   }
 
@@ -424,7 +439,7 @@ export default {
     min-width: 350px;
   }
 
-  .header__nav-item {
+  .header-nav__item {
     padding: 8px 0 10px;
     width: 100%;
     font-family: var(--base-font-family);
@@ -436,19 +451,19 @@ export default {
     color: #959597;
   }
 
-  .header__nav-item:not(:last-child) {
+  .header-nav__item:not(:last-child) {
     margin-right: 0;
     margin-bottom: 8px;
   }
 
-  .header__nav-item:hover,
-  .header__nav-item:active {
+  .header-nav__item:hover,
+  .header-nav__item_active {
     color: #1f2229;
     transition: color 0.3s ease-in;
   }
 
-  .header__nav-item:hover::after,
-  .header__nav-item:active::after {
+  .header-nav__item:hover::after,
+  .header-nav__item_active::after {
     content: '';
     position: absolute;
     z-index: 10;
